@@ -1,47 +1,42 @@
-import java.util.ArrayList;
+import java.util.*;
 
 public class FindSpecificNumber {
 
     private ArrayList<Integer> arrayList = new ArrayList();
 
     // A method for find numbers that sum equal to a special number
-    public void findNumbers(int array[] ,int spNumber){
+    public Set<Integer> findNumbers(List<Integer> array, int spNumber){
+        Set<Integer> set = new HashSet<>();
 
-//        for (int i = 0; i < array.length; i++) {
-//            for (int j = i; j < array.length; j++) {
-//                if (i != j){
-//                    if (spNumber == array[i] + array[j]){
-//                        System.out.println("\n" + "The numbers is: " + spNumber + " = " + array[i] + " + " + array[j]);
-//                    }
-//                }
-//            }
-//        }
+        // Sort array
+        Collections.sort(array);
 
-        //
-        for (int i = 0; i < array.length; i++) {
-            int submission = spNumber - array[i];
+        for (Integer item : array) {
+            int submission = spNumber - item;
             if (submission > 0){
-                int tmp = binarySearch(array,i,array.length-1,submission);  // find submission in array
-                if (tmp > 0) {
-                    System.out.println(spNumber + ":" + " " + array[i] + " + " + submission);
+                int tmp = binarySearch(array,0,array.size(),submission);
+                if (tmp > 0){
+                    set.add(submission);
+                    set.add(item);
                 }
             }
         }
+        return set;
     }
 
     // A method for search in array
-    private int binarySearch(int arr[], int l, int r, int x){
+    private int binarySearch(List<Integer> arr, int l, int r, int x){
         if (r >= l) {
             int mid = l + (r - l) / 2;
 
             // If the element is present at the
             // middle itself
-            if (arr[mid] == x)
+            if (arr.get(mid) == x)
                 return mid;
 
             // If element is smaller than mid, then
             // it can only be present in left subarray
-            if (arr[mid] > x)
+            if (arr.get(mid) > x)
                 return binarySearch(arr, l, mid - 1, x);
 
             // Else the element can only be present
