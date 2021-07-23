@@ -4,15 +4,6 @@ public class FindSpecificNumber {
 
     private ArrayList<Integer> arrayList = new ArrayList();
 
-    // A method for delete numbers that are bigger than a specific number
-//    private void checkArrayWithInputNumber(int array[],int input){
-//        for (Integer item : array) {
-//            if (item < input){
-//                arrayList.add(item);
-//            }
-//        }
-//    }
-
     // A method for find numbers that sum equal to a special number
     public void findNumbers(int array[] ,int spNumber){
 
