@@ -1,3 +1,4 @@
+import junit.framework.AssertionFailedError;
 import org.junit.Assert;
 import org.junit.Test;
 
@@ -22,4 +23,21 @@ public class FindSpecificNumberTest {
 
         Assert.assertArrayEquals(new List[]{expectedValue}, new List[]{actValue});
     }
+
+
+    @Test
+    public void findNumbersTestError(){
+        List<Integer> list = Arrays.asList(2,4,6,8,3,6,12,7,21,14,15,9,1,22,16,18);
+        int spNumber = 21;
+        List<Integer> expectedValue = Arrays.asList(18,3,7,9,12,14,15);
+        Set<Integer> actualValue = findSpecificNumber.findNumbers(list,spNumber);
+        List actValue = new ArrayList();
+        for (Integer item : actualValue) {
+            actValue.add(item);
+        }
+
+        Assert.assertArrayEquals(new List[]{expectedValue}, new List[]{actValue});
+    }
+
+
 }
