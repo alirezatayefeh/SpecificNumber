@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
-        List<Integer> list = Arrays.asList(2,4,6,8,3,6,12,7,21,14,15,9,1,22,16,18);
+        List<Integer> list = Arrays.asList(2, 4, 6, 8, 3, 6, 12, 7, 21, 14, 15, 9, 1, 22, 16, 18);
 
         //Get specific number from user
         Scanner input = new Scanner(System.in);
